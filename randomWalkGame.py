@@ -12,6 +12,9 @@ import numpy as np
 # Import matplotlib.pyplot
 import matplotlib.pyplot as plt
 
+# Seed set
+np.random.seed(78)
+
 # Initialize random_walk
 random_walk = [0]
 
