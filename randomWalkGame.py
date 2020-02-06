@@ -64,3 +64,9 @@ ends = np_aw_t[100, :]
 # Plot histogram of ends, display plot
 plt.hist(ends)
 plt.show()
+
+# ----Calculate the possibility of win----
+# Count greater then 60
+count = len(ends[ends >= 60])
+chance = (count / 500) * 100
+print("The possibility of win: " + str(chance) + "%")
