@@ -18,8 +18,8 @@ np.random.seed(78)
 # Initialize and populate all_walks
 all_walks = []
 
-# Simulate random walk 10 times
-for j in range(250):
+# Simulate random walk 500 times
+for j in range(500):
     
     # Initialize random_walk
     random_walk = [0]
@@ -58,6 +58,9 @@ np_aw = np.array(all_walks)
 # Transpose np_aw
 np_aw_t = np.transpose(np_aw)
 
-# Plot np_aw and show
-plt.plot(np_aw_t)
+# Select last raw from np_aw_t
+ends = np_aw_t[100, :]
+
+# Plot histogram of ends, display plot
+plt.hist(ends)
 plt.show()
