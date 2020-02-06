@@ -15,34 +15,49 @@ import matplotlib.pyplot as plt
 # Seed set
 np.random.seed(78)
 
-# Initialize random_walk
-random_walk = [0]
+# Initialize and populate all_walks
+all_walks = []
 
-# Set for loop for run 100 times
-for i in range(100):
+# Simulate random walk 10 times
+for j in range(10):
     
-    # Initialize step: last element in random_walk
-    step = random_walk[-1]
+    # Initialize random_walk
+    random_walk = [0]
     
-    # Roll the dice
-    dice = np.random.randint(1,7)
-    
-    # Determine next step
-    if dice <= 2 : 
-        step -= 1
-    elif dice <= 5 :
-        step += 1
-    else :
-        step += np.random.randint(1,7)
+    # Set For Loop for run 100 times
+    for i in range(100):
         
-    # Append next step to random_walk
-    random_walk.append(step)
+        # Initialize step: last element in random_walk
+        step = random_walk[-1]
+        
+        # Roll the dice
+        dice = np.random.randint(1,7)
+        
+        # Determine next step
+        if dice <= 2 : 
+            step = max(0, step - 1)
+        elif dice <= 5 :
+            step += 1
+        else :
+            step += np.random.randint(1,7)
+            
+        # Append next step to random_walk
+        random_walk.append(step)
     
-# Print random_walk
-print(random_walk)
+    # Append random walk to all_walks
+    all_walks.append(random_walk)
+    
+    
+# Convert all_walks to Numpy array
+np_aw = np.array(all_walks)
 
-# Plot random_walk
-plt.plot(random_walk)
+# Plot np_aw and show
+plt.plot(np_aw)
+plt.show()
 
-# Show the plot
+# Transpose np_aw
+np_aw_t = np.transpose(np_aw)
+
+# Plot np_aw_t and show
+plt.plot(np_aw_t)
 plt.show()
