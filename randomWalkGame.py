@@ -19,7 +19,7 @@ np.random.seed(78)
 all_walks = []
 
 # Simulate random walk 10 times
-for j in range(10):
+for j in range(250):
     
     # Initialize random_walk
     random_walk = [0]
@@ -37,9 +37,13 @@ for j in range(10):
         if dice <= 2 : 
             step = max(0, step - 1)
         elif dice <= 5 :
-            step += 1
+            step = step + 1
         else :
-            step += np.random.randint(1,7)
+            step = step + np.random.randint(1,7)
+            
+        # Implement clumsiness
+        if np.random.rand() <= 0.001 :
+            step = 0
             
         # Append next step to random_walk
         random_walk.append(step)
@@ -51,13 +55,9 @@ for j in range(10):
 # Convert all_walks to Numpy array
 np_aw = np.array(all_walks)
 
-# Plot np_aw and show
-plt.plot(np_aw)
-plt.show()
-
 # Transpose np_aw
 np_aw_t = np.transpose(np_aw)
 
-# Plot np_aw_t and show
+# Plot np_aw and show
 plt.plot(np_aw_t)
 plt.show()
